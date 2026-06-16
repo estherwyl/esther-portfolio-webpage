@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Card — Redesign Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:#FAF7F1; --bg-alt:#F2ECE1; --card:#FFFFFF;
+    --ink:#1C1A15; --ink-soft:#4A463D; --ink-faint:#837C6E;
+    --line:#E7E0D0; --line-soft:#EFE9DC;
+    --gold:#B8860B; --gold-deep:#8F6907; --gold-bright:#D8A93F;
+    --gold-wash:rgba(184,134,11,0.10);
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:var(--sans); }
+  h1,h2,h3,h4 { font-family:var(--serif); font-weight:500; line-height:1.08; letter-spacing:-0.01em; margin:0; }
+  p { margin:0; }
+
+  /* ---- artboard shell that mimics the live page background ---- */
+  .stage { width:100%; height:100%; background:var(--bg); padding:48px; }
+  .stage--alt { background:var(--bg-alt); }
+  .stage-eyebrow {
+    font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-deep); display:inline-flex; align-items:center; gap:10px; margin:0 0 8px;
+  }
+  .stage-eyebrow::before { content:""; width:22px; height:1.5px; background:var(--gold); display:inline-block; }
+  .stage-note { font-size:14px; color:var(--ink-faint); margin:0 0 30px; max-width:560px; line-height:1.5; }
+
+  .grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+
+  /* shared atoms */
+  .cat {
+    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold-deep); background:var(--gold-wash); border:1px solid rgba(184,134,11,.22);
+    padding:5px 11px; border-radius:999px; display:inline-block; white-space:nowrap;
+  }
+  .role {
+    font-size:11.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .chips { display:flex; flex-wrap:wrap; gap:7px; }
+  .chip {
+    font-size:12px; font-weight:500; color:var(--ink-soft);
+    background:var(--bg-alt); border:1px solid var(--line);
+    padding:4px 10px; border-radius:5px; white-space:nowrap;
+  }
+  .stage--alt .chip { background:#fff; }
+  .links { display:flex; gap:22px; align-items:center; }
+  .plink {
+    display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600;
+    color:var(--ink-soft); text-decoration:none;
+  }
+  .plink svg { width:16px; height:16px; }
+  .plink--primary { color:var(--gold-deep); }
+
+  /* =====================================================
+     OPTION A — SPEC SHEET
+     ===================================================== */
+  .a-card {
+    background:var(--card); border:1px solid var(--line); border-radius:8px;
+    padding:26px 28px 24px; display:flex; flex-direction:column;
+    box-shadow:0 1px 0 rgba(28,26,21,.02);
+  }
+  .a-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .a-num { font-family:var(--serif); font-size:15px; color:var(--ink-faint); }
+  .a-title { font-size:24px; margin:16px 0 6px; }
+  .a-role { margin-bottom:13px; }
+  .a-does { font-size:16px; line-height:1.5; color:var(--ink-soft); }
+  .a-built-wrap { margin-top:16px; padding-top:16px; border-top:1px solid var(--line-soft); }
+  .a-built-label {
+    font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:7px;
+  }
+  .a-built { font-size:14.5px; line-height:1.55; color:var(--ink); }
+  .a-foot { margin-top:18px; display:flex; flex-direction:column; gap:16px; }
+
+  /* =====================================================
+     OPTION B — VISUAL FIRST
+     ===================================================== */
+  .b-card {
+    background:var(--card); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .b-media {
+    height:172px; position:relative; border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(120% 140% at 80% -20%, rgba(184,134,11,.10), transparent 60%),
+      repeating-linear-gradient(135deg, var(--bg-alt) 0 11px, var(--bg) 11px 22px);
+    display:flex; align-items:flex-end; justify-content:space-between; padding:14px;
+  }
+  .b-media .cat { background:#fff; }
+  .b-shot {
+    font-family:ui-monospace,Menlo,monospace; font-size:10.5px; letter-spacing:.04em;
+    color:var(--ink-faint); background:#fff; border:1px solid var(--line);
+    padding:4px 9px; border-radius:4px;
+  }
+  .b-body { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
+  .b-title { font-size:23px; margin-bottom:6px; }
+  .b-role { margin-bottom:12px; }
+  .b-does { font-size:15.5px; line-height:1.5; color:var(--ink-soft); }
+  .b-foot { margin-top:18px; display:flex; flex-direction:column; gap:15px; }
+
+  /* =====================================================
+     OPTION C — CASE-STUDY ROWS
+     ===================================================== */
+  .c-stack { display:flex; flex-direction:column; gap:20px; }
+  .c-card {
+    background:var(--card); border:1px solid var(--line); border-radius:8px;
+    display:grid; grid-template-columns:248px 1fr; overflow:hidden;
+  }
+  .c-rail {
+    background:var(--bg-alt); border-right:1px solid var(--line);
+    padding:26px 24px; display:flex; flex-direction:column; gap:14px;
+  }
+  .c-num { font-family:var(--serif); font-size:34px; color:var(--gold-deep); line-height:1; }
+  .c-rail .role { margin-top:-4px; }
+  .c-main { padding:28px 30px; display:flex; flex-direction:column; }
+  .c-title { font-size:27px; margin-bottom:10px; }
+  .c-does { font-size:18px; line-height:1.45; color:var(--ink-soft); }
+  .c-built-label {
+    font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold-deep); margin:18px 0 7px;
+  }
+  .c-built { font-size:15px; line-height:1.6; color:var(--ink); max-width:640px; }
+  .c-foot { margin-top:auto; padding-top:20px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="card-options.jsx"></script>
+</body>
+</html>
