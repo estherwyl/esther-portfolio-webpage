@@ -834,7 +834,7 @@ a { color: inherit; }
   .hero__grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 44px); }
   .photo-left .hero__grid { grid-template-columns: 1fr; }
   .photo-left .hero__photo { order: 0; }
-  .hero__photo { max-width: 380px; }
+  .hero__photo { max-width: 380px; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 720px) {
@@ -855,9 +855,20 @@ a { color: inherit; }
     padding: 14px var(--gut) 22px;
   }
   .nav.open .nav__links a { padding: 10px 0; font-size: 17px; }
-  .nav.open .nav__cta { display: inline-block; margin-top: 8px; }
+  .nav.open .nav__cta { display: inline-block; margin-top: 8px; border: none; background: none; padding: 10px 0; font-size: 17px; font-weight: 500; color: var(--ink-soft); border-radius: 0; }
   .nav.open .nav__toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav.open .nav__toggle span:nth-child(2) { opacity: 0; }
   .nav.open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .hero__cta .btn { flex: 1; justify-content: center; }
+  .logos__grid { gap: 24px 20px; }
+  .logo-cell { width: 130px; height: 44px; }
+  .logo-img, .logo-img--tesla, .logo-img--mercedes, .logo-img--disney, .logo-img--softbank { width: 100%; height: 100%; max-width: none; object-fit: contain; }
+  .work-card__body { padding: 20px 20px; }
+  .contact__links { flex-direction: column; }
+  .clink { width: 100%; box-sizing: border-box; }
+}
+
+@media (max-width: 480px) {
+  .hero__photo { max-width: 100%; }
+  .logo-cell { width: 110px; height: 38px; }
 }
