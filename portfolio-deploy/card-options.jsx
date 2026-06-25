@@ -29,7 +29,7 @@ const projects = [
     title: "JobSense",
     does: "A structured job-search dashboard that helps candidates evaluate opportunities by stage, score fit objectively, and decide the next best move.",
     built: "Designed a scoring model and decision gates, then built a dashboard that ranks roles and surfaces clear, unemotional next actions.",
-    tags: ["Decision Design", "Scoring Logic", "Dashboard UX", "Vibe-coded"],
+    tags: ["Evaluation Logic", "Criteria Modeling", "Workflow Design"],
   },
   {
     n: "04", cat: "Data Dashboard", role: "Solo project", collab: "",
