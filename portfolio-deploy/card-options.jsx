@@ -33,10 +33,10 @@ const projects = [
   },
   {
     n: "04", cat: "Data Dashboard", role: "Solo project", collab: "",
-    title: "Professional Network Dashboard",
+    title: "Network Compass",
     does: "Analyzes ~2,000 professional connections to surface who to talk to next.",
     built: "Built a pipeline that classifies ~2k connections by role, seniority and industry, with an interactive dashboard to spot networking gaps.",
-    tags: ["Data Analysis", "~2k records", "Dashboard", "Vibe-coded"],
+    tags: ["Graph Analysis", "Recommendation", "Data Storytelling"],
   },
 ];
 
