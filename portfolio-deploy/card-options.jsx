@@ -26,8 +26,8 @@ const projects = [
   },
   {
     n: "03", cat: "Decision Tool", role: "Solo project", collab: "",
-    title: "Career Decision System",
-    does: "A low-emotion job-search dashboard that turns opportunities into structured scores and next steps.",
+    title: "JobSense",
+    does: "A structured job-search dashboard that helps candidates evaluate opportunities by stage, score fit objectively, and decide the next best move.",
     built: "Designed a scoring model and decision gates, then built a dashboard that ranks roles and surfaces clear, unemotional next actions.",
     tags: ["Decision Design", "Scoring Logic", "Dashboard UX", "Vibe-coded"],
   },
